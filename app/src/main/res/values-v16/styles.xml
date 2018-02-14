@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="main_title">
+        <!-- Customize your theme here. -->
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:fontFamily">@font/raleway_black</item>
+    </style>
+
+    <style name="item_title">
+        <!-- Customize your theme here. -->
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:fontFamily">@font/raleway_bold</item>
+    </style>
+
+    <style name="under_title">
+        <!-- Customize your theme here. -->
+        <item name="android:textColor">@color/colorMainGreen</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:fontFamily">@font/raleway_light</item>
+    </style>
+</resources>

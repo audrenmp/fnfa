@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>Artboard Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-Copy">
+            <path d="M33.6401615,18 C29.0484359,18 27.4990918,21.9462891 27.4990918,21.9462891 C27.4990918,21.9462891 25.9515641,18 21.3580222,18 C16.7662967,18 14,22.2363281 14,25.7291016 C13.9981837,35.6695312 27.4990918,40.5 27.4990918,40.5 C27.4990918,40.5 41,35.6695313 41,25.7291016 C41,22.2363281 38.2337033,18 33.6401615,18 Z" id="Shape" fill="#81818D" fill-rule="nonzero"></path>
+            <circle id="Oval-3" fill="#46D4AF" cx="38.5" cy="25.5" r="7.5"></circle>
+            <text id="4" font-family="Montserrat-Regular, Montserrat" font-size="8" font-weight="normal" fill="#FFFFFF">
+                <tspan x="36" y="28">4</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

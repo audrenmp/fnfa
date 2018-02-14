@@ -1,0 +1,16 @@
+<resources>
+    <!--main-->
+    <string name="app_name">Festival national du film dAnimation</string>
+    <string name="title_home">Home</string>
+    <string name="title_calendar">Calendar</string>
+    <string name="title_favoris">Favoris</string>
+    <string name="title_map">Map</string>
+    <string name="title_infos">More infos</string>
+
+    <!--main-->
+    <string name="infos_title_tarifs">Tarifs</string>
+    <string name="infos_title_lieux">Lieux</string>
+    <string name="infos_title_partenaires">Partenaires</string>
+
+
+</resources>
