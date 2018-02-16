@@ -1,5 +1,6 @@
 package com.example.amauplot.festivalnationaldufilmdanimation
 
+import android.graphics.BitmapFactory
 import android.support.v4.app.Fragment
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -17,23 +18,38 @@ class InfosFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val recyclerView: RecyclerView = this.activity.findViewById(R.id.recyclerview_tarifs)
-        recyclerView.layoutManager = LinearLayoutManager(this.activity, LinearLayout.HORIZONTAL, false)
+        val recyclerViewPrices: RecyclerView = this.activity.findViewById(R.id.recyclerview_moviesshort)
+        recyclerViewPrices.layoutManager = LinearLayoutManager(this.activity, LinearLayout.HORIZONTAL, false)
 
-        val items = ArrayList<ItemPrice>()
+        val prices = ArrayList<ItemPrice>()
 
-        items.add(ItemPrice("5€", "Tarif unique"))
-        items.add(ItemPrice("5€", "Tarif unique"))
-        items.add(ItemPrice("5€", "Tarif unique"))
-        items.add(ItemPrice("5€", "Tarif unique"))
-        items.add(ItemPrice("5€", "Tarif unique"))
-        items.add(ItemPrice("5€", "Tarif unique"))
-        items.add(ItemPrice("5€", "Tarif unique"))
-        items.add(ItemPrice("5€", "Tarif unique"))
-        items.add(ItemPrice("5€", "Tarif unique"))
-        items.add(ItemPrice("5€", "Tarif unique"))
+        prices.add(ItemPrice("5€", "Tarif unique"))
+        prices.add(ItemPrice("3€", "Carte sortir"))
+        prices.add(ItemPrice("20€", "Tarif unique"))
+        prices.add(ItemPrice("5€", "Carnet fidélité"))
+        prices.add(ItemPrice("5€", "Tarif unique"))
+        prices.add(ItemPrice("5€", "Tarif unique"))
+        prices.add(ItemPrice("5€", "Tarif unique"))
+        prices.add(ItemPrice("5€", "Tarif unique"))
+        prices.add(ItemPrice("5€", "Tarif unique"))
+        prices.add(ItemPrice("5€", "Tarif unique"))
 
-        val adapter = PriceViewAdapter(items)
-        recyclerView.adapter = adapter
+        val adapterPrice = PriceViewAdapter(prices)
+        recyclerViewPrices.adapter = adapterPrice
+
+        val recyclerViewPartenaires: RecyclerView = this.activity.findViewById(R.id.recyclerview_partenaires)
+        recyclerViewPartenaires.layoutManager = LinearLayoutManager(this.activity, LinearLayout.HORIZONTAL, false)
+
+        val partenaires = ArrayList<ItemPartenaire>()
+
+        partenaires.add(ItemPartenaire(BitmapFactory.decodeResource(resources, R.drawable.logo), "http://festival-film-animation.fr/"))
+        partenaires.add(ItemPartenaire(BitmapFactory.decodeResource(resources, R.drawable.logo1), "http://festival-film-animation.fr/"))
+        partenaires.add(ItemPartenaire(BitmapFactory.decodeResource(resources, R.drawable.logo2), "http://festival-film-animation.fr/"))
+        partenaires.add(ItemPartenaire(BitmapFactory.decodeResource(resources, R.drawable.logo3), "http://festival-film-animation.fr/"))
+        partenaires.add(ItemPartenaire(BitmapFactory.decodeResource(resources, R.drawable.logo4), "http://festival-film-animation.fr/"))
+        partenaires.add(ItemPartenaire(BitmapFactory.decodeResource(resources, R.drawable.logo5), "http://festival-film-animation.fr/"))
+
+        val adapterPartenaires = PartenaireViewAdapter(partenaires)
+        recyclerViewPartenaires.adapter = adapterPartenaires
     }
 }

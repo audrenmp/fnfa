@@ -12,5 +12,9 @@
     <string name="infos_title_lieux">Lieux</string>
     <string name="infos_title_partenaires">Partenaires</string>
 
+    <string name="link_arvor"><a href="http://www.google.com">Arvor</a></string>
+
+
+
 
 </resources>
