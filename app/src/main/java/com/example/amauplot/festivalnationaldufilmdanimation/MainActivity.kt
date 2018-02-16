@@ -25,7 +25,7 @@ class MainActivity : FragmentActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_map -> {
-                val mapFragment = MapFragment()
+                val mapFragment = MapFragment.newInstance()
                 switchFragment(R.id.fragment_wrapper, mapFragment)
                 return@OnNavigationItemSelectedListener true
             }

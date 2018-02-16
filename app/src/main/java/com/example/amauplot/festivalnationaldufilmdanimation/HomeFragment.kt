@@ -22,7 +22,15 @@ class HomeFragment : Fragment() {
 
         val movies = ArrayList<ItemMovieShort>()
 
-        movies.add(ItemMovieShort(BitmapFactory.decodeResource(resources, R.drawable.logo), "Le titre", "lundi 16h30"))
+        movies.add(ItemMovieShort(BitmapFactory.decodeResource(resources, R.drawable.illu1), "Le titre", "lundi 16h30"))
+        movies.add(ItemMovieShort(BitmapFactory.decodeResource(resources, R.drawable.illu1), "Le titre", "lundi 16h30"))
+        movies.add(ItemMovieShort(BitmapFactory.decodeResource(resources, R.drawable.illu1), "Le titre", "lundi 16h30"))
+        movies.add(ItemMovieShort(BitmapFactory.decodeResource(resources, R.drawable.illu1), "Le titre", "lundi 16h30"))
+        movies.add(ItemMovieShort(BitmapFactory.decodeResource(resources, R.drawable.illu1), "Le titre", "lundi 16h30"))
+        movies.add(ItemMovieShort(BitmapFactory.decodeResource(resources, R.drawable.illu1), "Le titre", "lundi 16h30"))
+        movies.add(ItemMovieShort(BitmapFactory.decodeResource(resources, R.drawable.illu1), "Le titre", "lundi 16h30"))
+        movies.add(ItemMovieShort(BitmapFactory.decodeResource(resources, R.drawable.illu1), "Le titre", "lundi 16h30"))
+        movies.add(ItemMovieShort(BitmapFactory.decodeResource(resources, R.drawable.illu1), "Le titre", "lundi 16h30"))
 
         val adapterMovieShort = MovieHomeViewAdapter(movies)
         recyclerViewMovieShort.adapter = adapterMovieShort

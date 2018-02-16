@@ -10,7 +10,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.support.v4.content.ContextCompat.startActivity
 import android.content.Intent
 import android.net.Uri
 
@@ -45,8 +44,52 @@ class MovieHomeViewAdapter(val list:ArrayList<ItemMovieShort>):RecyclerView.Adap
     }
 }
 
+// PAGE CALENDRIER
 
-// PAGE INFOS !
+class MovieCalendarViewAdapter(val list:ArrayList<ItemMovieLong>):RecyclerView.Adapter<MovieCalendarViewAdapter.ViewHolder>() {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieCalendarViewAdapter.ViewHolder {
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.list_of_movies_full_vertical, parent, false)
+        return ViewHolder(v)
+    }
+
+    //this method is binding the data on the list
+    override fun onBindViewHolder(holder: MovieCalendarViewAdapter.ViewHolder, position: Int) {
+        holder.bindItems(list[position])
+    }
+
+    //this method is giving the size of the list
+    override fun getItemCount(): Int {
+        return list.size
+    }
+
+    class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
+        fun bindItems(data : ItemMovieLong){
+            val ivMovie: ImageView = itemView.findViewById(R.id.iv_movie)
+            ivMovie.setImageBitmap(data.img)
+            val tvTitle:TextView = itemView.findViewById(R.id.tv_calendar_titre)
+            tvTitle.text = data.title
+            val tvDuree:TextView = itemView.findViewById(R.id.tv_calendar_duree)
+            tvDuree.text = data.duree
+            val tvLieu:TextView = itemView.findViewById(R.id.tv_calendar_lieu)
+            tvLieu.text = data.lieu
+            val tvPublic:TextView = itemView.findViewById(R.id.tv_calendar_public)
+            tvPublic.text = data.public
+            val tvHeure:TextView = itemView.findViewById(R.id.tv_calendar_heure)
+            tvHeure.text = data.heure
+            val tvType:TextView = itemView.findViewById(R.id.tv_calendar_type)
+            tvType.text = data.type
+            val tvDate:TextView = itemView.findViewById(R.id.tv_calendar_date)
+            tvDate.text = data.date
+            val tvAuteur:TextView = itemView.findViewById(R.id.tv_calendar_auteur)
+            tvAuteur.text = data.auteur
+
+        }
+    }
+}
+
+
+// PAGE INFOS
 
 class PriceViewAdapter(val list:ArrayList<ItemPrice>):RecyclerView.Adapter<PriceViewAdapter.ViewHolder>() {
 
@@ -67,9 +110,9 @@ class PriceViewAdapter(val list:ArrayList<ItemPrice>):RecyclerView.Adapter<Price
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         fun bindItems(data : ItemPrice){
-            val tvPrice:TextView = itemView.findViewById(R.id.tv_infos_price)
+            val tvPrice:TextView = itemView.findViewById(R.id.tv_calendar_titre)
             tvPrice.text = data.price
-            val tvDesc:TextView = itemView.findViewById(R.id.tv_infos_description)
+            val tvDesc:TextView = itemView.findViewById(R.id.tv_calendar_duree)
             tvDesc.text = data.desc
         }
     }
@@ -97,7 +140,7 @@ class PartenaireViewAdapter(val list:ArrayList<ItemPartenaire>):RecyclerView.Ada
             val imageView: ImageView = itemView.findViewById(R.id.iv_logo_partenaire)
             imageView.setImageBitmap(data.logo)
 
-            imageView.setOnClickListener {
+            itemView.setOnClickListener {
                 val intent = Intent()
                 intent.action = Intent.ACTION_VIEW
                 intent.addCategory(Intent.CATEGORY_BROWSABLE)
