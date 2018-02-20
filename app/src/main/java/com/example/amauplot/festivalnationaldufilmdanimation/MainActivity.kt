@@ -7,6 +7,8 @@ import android.support.v4.app.FragmentActivity
 import android.widget.FrameLayout
 import kotlinx.android.synthetic.main.activity_main.*
 
+
+
 class MainActivity : FragmentActivity() {
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -51,6 +53,8 @@ class MainActivity : FragmentActivity() {
         }
         navigation.getMenu().getItem(2).setChecked(true)
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+
+
     }
 
     fun initFragment(idContainer: Int, frag: Fragment){
