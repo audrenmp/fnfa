@@ -12,6 +12,9 @@ import android.widget.LinearLayout
 
 
 class InfosFragment : Fragment() {
+    companion object {
+        fun newInstance() = InfosFragment()
+    }
     override fun onCreateView(inflater: LayoutInflater?,
                               container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater?.inflate(R.layout.fragment_infos, container, false)

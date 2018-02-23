@@ -11,6 +11,10 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 
 class CalendarFragment : Fragment() {
+    companion object {
+        fun newInstance() = CalendarFragment()
+    }
+
     override fun onCreateView(inflater: LayoutInflater?,
                               container: ViewGroup?, savedInstanceState: Bundle?): View? {
 

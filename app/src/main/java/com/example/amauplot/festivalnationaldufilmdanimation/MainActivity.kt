@@ -14,7 +14,7 @@ class MainActivity : FragmentActivity() {
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_calendar -> {
-                 val calendarFragment = CalendarFragment()
+                 val calendarFragment = CalendarFragment.newInstance()
                  switchFragment(R.id.fragment_wrapper, calendarFragment)
                 return@OnNavigationItemSelectedListener true
             }
@@ -22,7 +22,7 @@ class MainActivity : FragmentActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_home -> {
-                val homeFragment = HomeFragment()
+                val homeFragment = HomeFragment.newInstance()
                 switchFragment(R.id.fragment_wrapper, homeFragment)
                 return@OnNavigationItemSelectedListener true
             }
@@ -32,7 +32,7 @@ class MainActivity : FragmentActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_infos -> {
-                val infosFragment = InfosFragment()
+                val infosFragment = InfosFragment.newInstance()
                 switchFragment(R.id.fragment_wrapper, infosFragment)
                 return@OnNavigationItemSelectedListener true
             }
@@ -53,8 +53,6 @@ class MainActivity : FragmentActivity() {
         }
         navigation.getMenu().getItem(2).setChecked(true)
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-
-
     }
 
     fun initFragment(idContainer: Int, frag: Fragment){
