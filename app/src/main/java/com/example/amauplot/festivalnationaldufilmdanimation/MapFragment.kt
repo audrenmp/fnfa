@@ -12,22 +12,40 @@ import com.google.android.gms.maps.MapsInitializer
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.LatLng
 
+class MapFragment : Fragment(), OnMapReadyCallback {
+    private var mGoogleMap: GoogleMap? = null
+    private var mMapView: MapView? = null
     private var mView: View? = null
-    override fun onCreateView(inflater: LayoutInflater?,
-                              container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
+    companion object {
+        fun newInstance() = MapFragment()
+    }
+
+    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mView = inflater?.inflate(R.layout.fragment_map, container, false)
         return mView
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
 //        mMapView = mView.findViewById(R.id.mapView)
+
 //        mMapView.onCreate(null)
+
 //        mMapView.onResume()
+
 //        mMapView.getMapAsync(this)
 
     }
+
     override fun onMapReady(p0: GoogleMap?) {
+
 //        mGoogleMap = GoogleMap
+
 //        mGoogleMap.mapType(GoogleMap.MAP_TYPE_NORMAL)
+
 //        mGoogleMap.addMarker()
+
     }
+
 }
