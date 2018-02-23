@@ -5,7 +5,7 @@
       "title": "text 1",
       "catId": "1",
       "locationId": "1",
-      "image": "icon1.png",
+      "image": "illu1.jpg",
       "author": "John Smith",
       "weekDay": "Monday",
       "day": "10",
@@ -13,14 +13,15 @@
       "startTime": "15h30",
       "endTime": "17h",
       "duration": "1h30",
-      "url": "https://www.random-url.com"
+      "url": "https://www.random-url.com",
+      "age": "9"
     },
     {
       "id": "1",
       "title": "text 1",
-      "catId": "1",
+      "catId": "2",
       "locationId": "1",
-      "image": "icon1.png",
+      "image": "illu1.jpg",
       "author": "John Smith",
       "weekDay": "Monday",
       "day": "10",
@@ -28,14 +29,15 @@
       "startTime": "15h30",
       "endTime": "17h",
       "duration": "1h30",
-      "url": "https://www.random-url.com"
+      "url": "https://www.random-url.com",
+      "age": "9"
     },
     {
       "id": "1",
       "title": "text 1",
-      "catId": "1",
+      "catId": "2",
       "locationId": "1",
-      "image": "icon1.png",
+      "image": "illu1.jpg",
       "author": "John Smith",
       "weekDay": "Monday",
       "day": "10",
@@ -43,14 +45,15 @@
       "startTime": "15h30",
       "endTime": "17h",
       "duration": "1h30",
-      "url": "https://www.random-url.com"
+      "url": "https://www.random-url.com",
+      "age": "9"
     },
     {
       "id": "1",
       "title": "text 1",
-      "catId": "1",
+      "catId": "2",
       "locationId": "1",
-      "image": "icon1.png",
+      "image": "illu1.jpg",
       "author": "John Smith",
       "weekDay": "Monday",
       "day": "10",
@@ -58,14 +61,15 @@
       "startTime": "15h30",
       "endTime": "17h",
       "duration": "1h30",
-      "url": "https://www.random-url.com"
+      "url": "https://www.random-url.com",
+      "age": "9"
     },
     {
       "id": "1",
       "title": "text 1",
-      "catId": "1",
+      "catId": "3",
       "locationId": "1",
-      "image": "icon1.png",
+      "image": "illu1.jpg",
       "author": "John Smith",
       "weekDay": "Monday",
       "day": "10",
@@ -73,14 +77,15 @@
       "startTime": "15h30",
       "endTime": "17h",
       "duration": "1h30",
-      "url": "https://www.random-url.com"
+      "url": "https://www.random-url.com",
+      "age": "9"
     },
     {
       "id": "1",
       "title": "text 1",
-      "catId": "1",
+      "catId": "3",
       "locationId": "1",
-      "image": "icon1.png",
+      "image": "illu1.jpg",
       "author": "John Smith",
       "weekDay": "Monday",
       "day": "10",
@@ -88,14 +93,15 @@
       "startTime": "15h30",
       "endTime": "17h",
       "duration": "1h30",
-      "url": "https://www.random-url.com"
+      "url": "https://www.random-url.com",
+      "age": "9"
     },
     {
       "id": "1",
       "title": "text 1",
-      "catId": "1",
+      "catId": "4",
       "locationId": "1",
-      "image": "icon1.png",
+      "image": "illu1.jpg",
       "author": "John Smith",
       "weekDay": "Monday",
       "day": "10",
@@ -103,14 +109,15 @@
       "startTime": "15h30",
       "endTime": "17h",
       "duration": "1h30",
-      "url": "https://www.random-url.com"
+      "url": "https://www.random-url.com",
+      "age": "9"
     },
     {
       "id": "1",
       "title": "text 1",
-      "catId": "1",
+      "catId": "5",
       "locationId": "1",
-      "image": "icon1.png",
+      "image": "illu1.jpg",
       "author": "John Smith",
       "weekDay": "Monday",
       "day": "10",
@@ -118,7 +125,8 @@
       "startTime": "15h30",
       "endTime": "17h",
       "duration": "1h30",
-      "url": "https://www.random-url.com"
+      "url": "https://www.random-url.com",
+      "age": "9"
     }
   ]
 }

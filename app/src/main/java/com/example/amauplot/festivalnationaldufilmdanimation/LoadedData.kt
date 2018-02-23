@@ -4,11 +4,11 @@ import android.graphics.Bitmap
 import android.os.Parcel
 import android.os.Parcelable
 
-/*data class LoadedData(
+data class LoadedData(
         val id: Int,
         val title: String,
         val cat_id : Int,
-        val Location_id: Int,
+        val location_id: Int,
         val image: Bitmap,
         val author: String,
         val weekDay: String,
@@ -17,29 +17,15 @@ import android.os.Parcelable
         val startTime: String,
         val endTime: String,
         val duration: String,
-        val url: String
-)*/
-
-data class LoadedData(
-        val id: Int,
-        val title: String,
-        val cat_id : Int,
-        val Location_id: Int,
-        val image: String,
-        val author: String,
-        val weekDay: String,
-        val day: String,
-        val month: String,
-        val startTime: String,
-        val endTime: String,
-        val duration: String,
-        val url: String
+        val url: String,
+        val age: String
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
             parcel.readInt(),
             parcel.readString(),
             parcel.readInt(),
             parcel.readInt(),
+            parcel.readParcelable<Bitmap>(Bitmap::class.java.classLoader),
             parcel.readString(),
             parcel.readString(),
             parcel.readString(),
