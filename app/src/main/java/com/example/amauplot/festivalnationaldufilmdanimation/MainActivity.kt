@@ -11,6 +11,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
 import java.util.ArrayList
 
+
+
 class MainActivity : FragmentActivity() {
 
     val data_file = "data.json"
@@ -32,7 +34,7 @@ class MainActivity : FragmentActivity() {
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_calendar -> {
-                 val calendarFragment = CalendarFragment()
+                 val calendarFragment = CalendarFragment.newInstance()
                  switchFragment(R.id.fragment_wrapper, calendarFragment)
                 return@OnNavigationItemSelectedListener true
             }
@@ -45,12 +47,12 @@ class MainActivity : FragmentActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_map -> {
-                val mapFragment = MapFragment()
+                val mapFragment = MapFragment.newInstance()
                 switchFragment(R.id.fragment_wrapper, mapFragment)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_infos -> {
-                val infosFragment = InfosFragment()
+                val infosFragment = InfosFragment.newInstance()
                 switchFragment(R.id.fragment_wrapper, infosFragment)
                 return@OnNavigationItemSelectedListener true
             }

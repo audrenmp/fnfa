@@ -2,16 +2,32 @@ package com.example.amauplot.festivalnationaldufilmdanimation
 
 import android.support.v4.app.Fragment
 import android.os.Bundle
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.MapView
+import com.google.android.gms.maps.MapsInitializer
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.model.LatLng
 
-class MapFragment : Fragment() {
-    companion object {
-        fun newInstance() = MapFragment()
-    }
+    private var mView: View? = null
     override fun onCreateView(inflater: LayoutInflater?,
                               container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater?.inflate(R.layout.fragment_map, container, false)
+        mView = inflater?.inflate(R.layout.fragment_map, container, false)
+        return mView
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        mMapView = mView.findViewById(R.id.mapView)
+//        mMapView.onCreate(null)
+//        mMapView.onResume()
+//        mMapView.getMapAsync(this)
+
+    }
+    override fun onMapReady(p0: GoogleMap?) {
+//        mGoogleMap = GoogleMap
+//        mGoogleMap.mapType(GoogleMap.MAP_TYPE_NORMAL)
+//        mGoogleMap.addMarker()
     }
 }
