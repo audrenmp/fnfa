@@ -12,14 +12,7 @@ import com.google.android.gms.maps.MapsInitializer
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.LatLng
 
-class MapFragment : Fragment(), OnMapReadyCallback {
-    private var mGoogleMap: GoogleMap? = null
-    private var mMapView: MapView? = null
     private var mView: View? = null
-
-    companion object {
-        fun newInstance() = MapFragment()
-    }
     override fun onCreateView(inflater: LayoutInflater?,
                               container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mView = inflater?.inflate(R.layout.fragment_map, container, false)
