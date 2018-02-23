@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/festivalNationalDuFilmdAnimation.iml" filepath="$PROJECT_DIR$/festivalNationalDuFilmdAnimation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fnfa.iml" filepath="$PROJECT_DIR$/fnfa.iml" />
     </modules>
   </component>
 </project>
