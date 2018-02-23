@@ -12,7 +12,15 @@ import android.widget.LinearLayout
 
 class CalendarFragment : Fragment() {
     companion object {
-        fun newInstance() = CalendarFragment()
+        fun newInstance(events : ArrayList<LoadedData>, categories : Array<String>, locations : Array<String>): CalendarFragment {
+            val args = Bundle()
+            args.putParcelableArrayList("events", events)
+            args.putStringArray("categories", categories)
+            args.putStringArray("locations", locations)
+            val fragment = CalendarFragment()
+            fragment.arguments = args
+            return fragment
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater?,
@@ -26,18 +34,22 @@ class CalendarFragment : Fragment() {
         val recyclerViewMovieLong: RecyclerView = this.activity.findViewById(R.id.recyclerview_movieslong)
         recyclerViewMovieLong.layoutManager = LinearLayoutManager(this.activity, LinearLayout.VERTICAL, false)
 
+        val args = arguments
+        val events : ArrayList<LoadedData> = args.getParcelableArrayList<LoadedData>("events")
+        val locations : Array<String> = args.getStringArray("locations")
+        val categories : Array<String> = args.getStringArray("categories")
         val movies = ArrayList<ItemMovieLong>()
 
-        movies.add(ItemMovieLong(BitmapFactory.decodeResource(resources, R.drawable.illu1), "Le titre", "lundi 16h30", "cinema", "tout public", "16h30", "spectacle", "8 avril", "bernard"))
-        movies.add(ItemMovieLong(BitmapFactory.decodeResource(resources, R.drawable.illu1), "Le titre", "lundi 16h30", "cinema", "tout public", "16h30", "spectacle", "8 avril", "bernard"))
-        movies.add(ItemMovieLong(BitmapFactory.decodeResource(resources, R.drawable.illu1), "Le titre", "lundi 16h30", "cinema", "tout public", "16h30", "spectacle", "8 avril", "bernard"))
-        movies.add(ItemMovieLong(BitmapFactory.decodeResource(resources, R.drawable.illu1), "Le titre", "lundi 16h30", "cinema", "tout public", "16h30", "spectacle", "8 avril", "bernard"))
-        movies.add(ItemMovieLong(BitmapFactory.decodeResource(resources, R.drawable.illu1), "Le titre", "lundi 16h30", "cinema", "tout public", "16h30", "spectacle", "8 avril", "bernard"))
-        movies.add(ItemMovieLong(BitmapFactory.decodeResource(resources, R.drawable.illu1), "Le titre", "lundi 16h30", "cinema", "tout public", "16h30", "spectacle", "8 avril", "bernard"))
-        movies.add(ItemMovieLong(BitmapFactory.decodeResource(resources, R.drawable.illu1), "Le titre", "lundi 16h30", "cinema", "tout public", "16h30", "spectacle", "8 avril", "bernard"))
-        movies.add(ItemMovieLong(BitmapFactory.decodeResource(resources, R.drawable.illu1), "Le titre", "lundi 16h30", "cinema", "tout public", "16h30", "spectacle", " 8 avril", "bernard"))
-        movies.add(ItemMovieLong(BitmapFactory.decodeResource(resources, R.drawable.illu1), "Le titre", "lundi 16h30", "cinema", "tout public", "16h30", "spectacle", "8 avril", "bernard"))
-        movies.add(ItemMovieLong(BitmapFactory.decodeResource(resources, R.drawable.illu1), "Le titre", "lundi 16h30", "cinema", "tout public", "16h30", "spectacle", "8 avril", "bernard"))
+        for (i in 0 until events.size) {
+            val event = events.get(i)
+            var age : String
+            if(event.age == "") {
+                age = "tout public"
+            } else {
+                age = event.age + " ans"
+            }
+            movies.add(ItemMovieLong(event.image, event.title, event.weekDay + " " + event.startTime, locations.get(event.location_id), age, event.startTime, categories.get(event.cat_id), event.day + " " + event.month, event.author))
+        }
 
         val adapterMovieLong = MovieCalendarViewAdapter(movies)
         recyclerViewMovieLong.adapter = adapterMovieLong

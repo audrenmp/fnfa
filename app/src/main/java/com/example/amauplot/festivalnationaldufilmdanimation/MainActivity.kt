@@ -34,7 +34,7 @@ class MainActivity : FragmentActivity() {
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_calendar -> {
-                 val calendarFragment = CalendarFragment.newInstance()
+                 val calendarFragment = CalendarFragment.newInstance(events, categories, locations)
                  switchFragment(R.id.fragment_wrapper, calendarFragment)
                 return@OnNavigationItemSelectedListener true
             }
@@ -70,7 +70,7 @@ class MainActivity : FragmentActivity() {
             if (savedInstanceState != null) {
                 return
             }
-            val homeFragment = HomeFragment()
+            val homeFragment = HomeFragment.newInstance(events, categories)
             initFragment(R.id.fragment_wrapper, homeFragment)
         }
         navigation.getMenu().getItem(2).setChecked(true)
@@ -108,6 +108,7 @@ class MainActivity : FragmentActivity() {
             val catId = item.getInt("catId")
             val locationId = item.getInt("locationId")
             val image = item.getString("image")
+            val bitmap = loadImage(image)
             val author = item.getString("author")
             val weekDay = item.getString("weekDay")
             val day = item.getString("day")
@@ -116,7 +117,8 @@ class MainActivity : FragmentActivity() {
             val endTime = item.getString("endTime")
             val duration = item.getString("duration")
             val url = item.getString("url")
-            events.add(LoadedData(id, title, catId, locationId, image, author, weekDay, day, month, startTime, endTime, duration, url))
+            val age = item.getString("age")
+            events.add(LoadedData(id, title, catId, locationId, bitmap, author, weekDay, day, month, startTime, endTime, duration, url, age))
         }
     }
 
