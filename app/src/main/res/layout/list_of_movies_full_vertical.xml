@@ -137,15 +137,16 @@
 
             <ImageButton
                 android:id="@+id/imageButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
+                android:background="@android:color/transparent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.947"
+                app:layout_constraintHorizontal_bias="0.69"
                 app:layout_constraintStart_toEndOf="@+id/tv_calendar_titre"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_favoris" />
+                app:srcCompat="@drawable/ic_coeur_off" />
         </android.support.constraint.ConstraintLayout>
     </LinearLayout>
 </RelativeLayout>

@@ -26,14 +26,11 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         return mView
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
 //        mMapView = mView.findViewById(R.id.mapView)
-
 //        mMapView.onCreate(null)
-
 //        mMapView.onResume()
-
 //        mMapView.getMapAsync(this)
 
     }
