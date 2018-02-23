@@ -9,6 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.content.Intent
+import android.net.Uri
 
 
 class InfosFragment : Fragment() {
@@ -21,7 +23,7 @@ class InfosFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val recyclerViewPrices: RecyclerView = this.activity.findViewById(R.id.recyclerview_moviesshort)
+        val recyclerViewPrices: RecyclerView = this.activity.findViewById(R.id.recyclerview_tarifs)
         recyclerViewPrices.layoutManager = LinearLayoutManager(this.activity, LinearLayout.HORIZONTAL, false)
 
         val prices = ArrayList<ItemPrice>()
@@ -36,6 +38,12 @@ class InfosFragment : Fragment() {
         prices.add(ItemPrice("5€", "Tarif unique"))
         prices.add(ItemPrice("5€", "Tarif unique"))
         prices.add(ItemPrice("5€", "Tarif unique"))
+
+//        pour ajouter un lien, on ajoute un Listener sur l id et on lance
+//        val url = "http://www.example.com"
+//        val i = Intent(Intent.ACTION_VIEW)
+//        i.data = Uri.parse(url)
+//        startActivity(i)
 
         val adapterPrice = PriceViewAdapter(prices)
         recyclerViewPrices.adapter = adapterPrice

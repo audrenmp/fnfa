@@ -4,6 +4,7 @@ package com.example.amauplot.festivalnationaldufilmdanimation
  * Created by amauplot on 14/02/2018.
  */
 
+import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -12,13 +13,46 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.content.Intent
 import android.net.Uri
+import android.support.v7.widget.LinearLayoutManager
+import android.widget.LinearLayout
 
 // HOMEPAGE
+
+class MovieHomeContainerViewAdapter(val liststring:Array<String>, var listitems:ArrayList<ArrayList<ItemMovieShort>>, val context:Context): RecyclerView.Adapter<MovieHomeContainerViewAdapter.ViewHolder>() {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieHomeContainerViewAdapter.ViewHolder {
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.container_list_of_movies_short_vertical, parent, false)
+        return ViewHolder(v)
+    }
+
+    //this method is binding the data on the list
+    override fun onBindViewHolder(holder: MovieHomeContainerViewAdapter.ViewHolder, position: Int) {
+        holder.bindItems(liststring[position], listitems[position], context)
+    }
+
+    //this method is giving the size of the list
+    override fun getItemCount(): Int {
+        return liststring.size
+    }
+
+    class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
+        fun bindItems(title : String, items : ArrayList<ItemMovieShort>, context : Context){
+            val tvCategory: TextView = itemView.findViewById(R.id.home_title_category)
+            tvCategory.text = title
+
+            val rvListOfMoviesShort: RecyclerView = itemView.findViewById(R.id.recyclerview_moviesshort)
+            rvListOfMoviesShort.layoutManager = LinearLayoutManager(context, LinearLayout.HORIZONTAL, false)
+
+            val adapterMovieShort = MovieHomeViewAdapter(items)
+            rvListOfMoviesShort.adapter = adapterMovieShort
+        }
+    }
+}
 
 class MovieHomeViewAdapter(val list:ArrayList<ItemMovieShort>):RecyclerView.Adapter<MovieHomeViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieHomeViewAdapter.ViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.list_of_movies_short_horizontal, parent, false)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.items_movies_short_horizontal, parent, false)
         return ViewHolder(v)
     }
 
@@ -36,8 +70,8 @@ class MovieHomeViewAdapter(val list:ArrayList<ItemMovieShort>):RecyclerView.Adap
         fun bindItems(data : ItemMovieShort){
             val ivMovie: ImageView = itemView.findViewById(R.id.iv_movie)
             ivMovie.setImageBitmap(data.img)
-            val tvTitle:TextView = itemView.findViewById(R.id.tv_movie_title)
-            tvTitle.text = data.title
+            val tvTitleMovie:TextView = itemView.findViewById(R.id.tv_movie_title)
+            tvTitleMovie.text = data.title
             val tvInfos:TextView = itemView.findViewById(R.id.tv_movie_infos)
             tvInfos.text = data.infos
         }

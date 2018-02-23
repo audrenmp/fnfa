@@ -11,6 +11,7 @@ import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.MapsInitializer
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 
 class MapFragment : Fragment(), OnMapReadyCallback {
     private var mGoogleMap: GoogleMap? = null
@@ -26,22 +27,20 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         return mView
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        mMapView = mView.findViewById(R.id.mapView)
-//        mMapView.onCreate(null)
-//        mMapView.onResume()
-//        mMapView.getMapAsync(this)
+        mMapView = mView!!.findViewById(R.id.mapView)
 
+        mMapView?.apply {
+            this.onCreate(null)
+            this.onResume()
+            this.getMapAsync(this@MapFragment)
+        }
     }
 
     override fun onMapReady(p0: GoogleMap?) {
-
-//        mGoogleMap = GoogleMap
-
-//        mGoogleMap.mapType(GoogleMap.MAP_TYPE_NORMAL)
-
-//        mGoogleMap.addMarker()
+//        mGoogleMap = p0
+//        mGoogleMap!!.mapType =  GoogleMap.MAP_TYPE_NORMAL
+//        mGoogleMap!!.addMarker()
 
     }
 

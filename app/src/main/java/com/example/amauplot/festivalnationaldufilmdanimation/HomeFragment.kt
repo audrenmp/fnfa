@@ -22,24 +22,34 @@ class HomeFragment : Fragment() {
         }
     }
 
+
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater?.inflate(R.layout.fragment_home, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val recyclerViewMovieShort: RecyclerView = this.activity.findViewById(R.id.recyclerview_moviesshort)
-        recyclerViewMovieShort.layoutManager = LinearLayoutManager(this.activity, LinearLayout.HORIZONTAL, false)
+        val recyclerViewContainerMovieShort: RecyclerView = this.activity.findViewById(R.id.recyclerview_listof_moviesshort)
+        recyclerViewContainerMovieShort.layoutManager = LinearLayoutManager(this.activity, LinearLayout.VERTICAL, false)
 
+        val context = this.activity
         val args = arguments
         val events : ArrayList<LoadedData> = args.getParcelableArrayList<LoadedData>("events")
-        val movies = ArrayList<ItemMovieShort>()
+        val categories : Array<String> = args.getStringArray("categories")
 
-        for (i in 0 until events.size) {
-            val event = events.get(i)
-            movies.add(ItemMovieShort(event.image, event.title, event.weekDay + " " + event.startTime))
+        val container_movies = ArrayList<ArrayList<ItemMovieShort>>()
+
+        for (j in 1 until categories.size + 1) {
+            val movies = ArrayList<ItemMovieShort>()
+            for (i in 0 until events.size) {
+                val event = events.get(i)
+                if (event.cat_id == j) {
+                    movies.add(ItemMovieShort(event.image, event.title + " / " + event.cat_id + " / " + j, event.weekDay + " " + event.startTime))
+                }
+            }
+            container_movies.add(movies)
         }
 
-        val adapterMovieShort = MovieHomeViewAdapter(movies)
-        recyclerViewMovieShort.adapter = adapterMovieShort
+        val adapterContainerMovieShort = MovieHomeContainerViewAdapter(categories, container_movies, context)
+        recyclerViewContainerMovieShort.adapter = adapterContainerMovieShort
     }
 }
