@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
 import android.widget.FrameLayout
 import kotlinx.android.synthetic.main.activity_main.*
+import org.json.JSONArray
 import org.json.JSONObject
 import java.util.ArrayList
 
@@ -16,7 +17,9 @@ import java.util.ArrayList
 class MainActivity : FragmentActivity() {
 
     val data_file = "data.json"
+    val favs_file = "favorites.json"
     var events = ArrayList<LoadedData>()
+    val favorites = ArrayList<LoadedData>()
     val categories = arrayOf(
         "Séance scolaire ouverte au public",
         "Séance spéciale",
@@ -39,6 +42,8 @@ class MainActivity : FragmentActivity() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_favoris -> {
+                val favoritesFragment = FavoritesFragment.newInstance(favorites, categories, locations)
+                switchFragment(R.id.fragment_wrapper, favoritesFragment)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_home -> {
@@ -65,6 +70,7 @@ class MainActivity : FragmentActivity() {
         setContentView(R.layout.activity_main)
 
         loadJsonData(data_file)
+        loadFavorites(favs_file)
 
         if (findViewById<FrameLayout>(R.id.fragment_wrapper) != null) {
             if (savedInstanceState != null) {
@@ -119,6 +125,25 @@ class MainActivity : FragmentActivity() {
             val url = item.getString("url")
             val age = item.getString("age")
             events.add(LoadedData(id, title, catId, locationId, bitmap, author, weekDay, day, month, startTime, endTime, duration, url, age))
+        }
+    }
+
+    fun loadFavorites(favs_file: String) {
+        val jsonString = application.assets.open(favs_file).bufferedReader().use{
+            it.readText()
+        }
+        val jsonArray = JSONArray(jsonString)
+
+        for (i in 0..(jsonArray.length() - 1)) {
+            val id = jsonArray.getString(i)
+
+            for (j in 0 until events.size) {
+                val event = events.get(j)
+                val eventId = event.id.toString()
+                if(eventId == id) {
+                    favorites.add(event)
+                }
+            }
         }
     }
 
