@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.content.Intent
 import android.net.Uri
+import android.widget.TextView
 
 
 class InfosFragment : Fragment() {
@@ -39,12 +40,6 @@ class InfosFragment : Fragment() {
         prices.add(ItemPrice("5€", "Tarif unique"))
         prices.add(ItemPrice("5€", "Tarif unique"))
 
-//        pour ajouter un lien, on ajoute un Listener sur l id et on lance
-//        val url = "http://www.example.com"
-//        val i = Intent(Intent.ACTION_VIEW)
-//        i.data = Uri.parse(url)
-//        startActivity(i)
-
         val adapterPrice = PriceViewAdapter(prices)
         recyclerViewPrices.adapter = adapterPrice
 
@@ -62,5 +57,13 @@ class InfosFragment : Fragment() {
 
         val adapterPartenaires = PartenaireViewAdapter(partenaires)
         recyclerViewPartenaires.adapter = adapterPartenaires
+
+        val link: TextView = this.activity.findViewById(R.id.tv_link);
+        link.setOnClickListener({
+            val url = "http://www.festival-film-animation.fr/"
+            val i = Intent(Intent.ACTION_VIEW)
+            i.data = Uri.parse(url)
+            startActivity(i)
+        })
     }
 }

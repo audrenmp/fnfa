@@ -13,6 +13,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.content.Intent
 import android.net.Uri
+import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.widget.LinearLayout
 
@@ -74,6 +75,14 @@ class MovieHomeViewAdapter(val list:ArrayList<ItemMovieShort>):RecyclerView.Adap
             tvTitleMovie.text = data.title
             val tvInfos:TextView = itemView.findViewById(R.id.tv_movie_infos)
             tvInfos.text = data.infos
+
+            val link: TextView = itemView.findViewById(R.id.tv_movie_title)
+            link.setOnClickListener({
+                val url = data.url
+                val i = Intent(Intent.ACTION_VIEW)
+                i.data = Uri.parse(url)
+                startActivity(itemView.context, i, null)
+            })
         }
     }
 }
@@ -179,10 +188,8 @@ class PartenaireViewAdapter(val list:ArrayList<ItemPartenaire>):RecyclerView.Ada
                 intent.action = Intent.ACTION_VIEW
                 intent.addCategory(Intent.CATEGORY_BROWSABLE)
                 intent.data = Uri.parse(data.link)
-//                startActivity(intent)
+                startActivity(imageView.context, intent, null)
             }
         }
-
-
     }
 }

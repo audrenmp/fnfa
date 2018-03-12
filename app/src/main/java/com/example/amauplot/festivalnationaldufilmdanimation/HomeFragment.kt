@@ -1,5 +1,7 @@
 package com.example.amauplot.festivalnationaldufilmdanimation
 
+import android.content.Intent
+import android.net.Uri
 import android.support.v4.app.Fragment
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -8,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.widget.TextView
 
 class HomeFragment : Fragment() {
 
@@ -42,7 +45,7 @@ class HomeFragment : Fragment() {
             for (i in 0 until events.size) {
                 val event = events.get(i)
                 if (event.cat_id == j) {
-                    movies.add(ItemMovieShort(event.image, event.title + " / " + event.cat_id + " / " + j, event.weekDay + " " + event.startTime))
+                    movies.add(ItemMovieShort(event.image, event.title + " / " + event.cat_id + " / " + j, event.weekDay + " " + event.startTime, event.url))
                 }
             }
             container_movies.add(movies)
