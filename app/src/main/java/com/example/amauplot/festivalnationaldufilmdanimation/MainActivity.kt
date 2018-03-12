@@ -27,7 +27,7 @@ class MainActivity : FragmentActivity() {
         "Volet professionnel",
         "Compétition et sélections",
         "Long métrage et rencontres",
-        "Atelier . secret Fab ",
+        "Atelier secret Fab ",
         "Salon des nouvelles écritures"
     )
     val locations = arrayOf(

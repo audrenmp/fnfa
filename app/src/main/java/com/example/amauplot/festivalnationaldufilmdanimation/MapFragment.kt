@@ -1,7 +1,9 @@
 package com.example.amauplot.festivalnationaldufilmdanimation
 
+import android.content.pm.PackageManager
 import android.support.v4.app.Fragment
 import android.os.Bundle
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -10,13 +12,16 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.MapsInitializer
 import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
+import android.support.v4.app.ActivityCompat
+import android.Manifest
+import android.widget.Toast
 
 class MapFragment : Fragment(), OnMapReadyCallback {
     private var mGoogleMap: GoogleMap? = null
     private var mMapView: MapView? = null
     private var mView: View? = null
+    private val LOCATION_REQUEST_CODE = 101
+    private var mMap: GoogleMap? = null
 
     companion object {
         fun newInstance() = MapFragment()
@@ -41,6 +46,18 @@ class MapFragment : Fragment(), OnMapReadyCallback {
 //        mGoogleMap = p0
 //        mGoogleMap!!.mapType =  GoogleMap.MAP_TYPE_NORMAL
 //        mGoogleMap!!.addMarker()
+//        if (mGoogleMap != null) {
+//            val permission = ContextCompat.checkSelfPermission(this.context,
+//                    Manifest.permission.ACCESS_FINE_LOCATION)
+//
+//            if (permission == PackageManager.PERMISSION_GRANTED) {
+//                mGoogleMap?.isMyLocationEnabled = true
+//            } else {
+//                requestPermission(
+//                        Manifest.permission.ACCESS_FINE_LOCATION,
+//                        LOCATION_REQUEST_CODE)
+//            }
+//        }
 
     }
 
