@@ -17,9 +17,10 @@ import java.util.ArrayList
 class MainActivity : FragmentActivity() {
 
     val data_file = "data.json"
-    val favs_file = "favorites.json"
+    val favs_file = "favorites.txt"
     var events = ArrayList<LoadedData>()
     val favorites = ArrayList<LoadedData>()
+    val favIds = ArrayList<String>()
     val categories = arrayOf(
         "Séance scolaire ouverte au public",
         "Séance spéciale",
@@ -129,18 +130,23 @@ class MainActivity : FragmentActivity() {
     }
 
     fun loadFavorites(favs_file: String) {
-        val jsonString = application.assets.open(favs_file).bufferedReader().use{
+        val favsString = application.assets.open(favs_file).bufferedReader().use{
             it.readText()
         }
-        val jsonArray = JSONArray(jsonString)
+        createFavoriteArray(favsString)
+    }
 
-        for (i in 0..(jsonArray.length() - 1)) {
-            val id = jsonArray.getString(i)
+    fun createFavoriteArray(favsString: String) {
+        val favsArray = favsString.removeSurrounding("[", "]").split(",").map { it.toInt() }
+
+        for (i in 0 until favsArray.size) {
+            val id = favsArray.get(i)
+            favIds.add(id.toString())
 
             for (j in 0 until events.size) {
                 val event = events.get(j)
                 val eventId = event.id.toString()
-                if(eventId == id) {
+                if(eventId == id.toString()) {
                     favorites.add(event)
                 }
             }
