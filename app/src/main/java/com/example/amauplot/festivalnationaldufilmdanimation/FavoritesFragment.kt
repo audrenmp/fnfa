@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.LinearLayout
 
 class FavoritesFragment : Fragment() {
@@ -52,5 +53,10 @@ class FavoritesFragment : Fragment() {
 
         val adapterMovieLong = MovieCalendarViewAdapter(movies)
         recyclerViewMovieLong.adapter = adapterMovieLong
+
+        val btnFav: ImageButton = this.activity.findViewById(R.id.favoris);
+        btnFav.setOnClickListener({
+            // ici
+        })
     }
 }
