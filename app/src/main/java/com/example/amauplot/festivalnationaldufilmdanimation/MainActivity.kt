@@ -8,10 +8,8 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
 import android.widget.FrameLayout
 import android.widget.ImageButton
-import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
-import java.io.File
 import java.util.ArrayList
 
 
@@ -151,11 +149,9 @@ class MainActivity : FragmentActivity() {
         if(!favIds.contains(id)){
             favIds.add(id)
             favorites.add(findEventById(id))
-            Toast.makeText(this, favIds.toString(), Toast.LENGTH_SHORT).show()
         } else {
             favIds.remove(id)
             favorites.remove(findEventById(id))
-            Toast.makeText(this, favIds.toString(), Toast.LENGTH_SHORT).show()
         }
 
         updateStoredFavorites()
@@ -168,7 +164,6 @@ class MainActivity : FragmentActivity() {
         if(favIds.contains(id)){
             favIds.remove(id)
             favorites.remove(findEventById(id))
-            Toast.makeText(this, favIds.toString(), Toast.LENGTH_SHORT).show()
         }
         updateStoredFavorites()
     }
