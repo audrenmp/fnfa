@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.content.Intent
 import android.net.Uri
+import android.support.v4.content.ContextCompat
 import android.widget.TextView
 
 
@@ -29,16 +30,12 @@ class InfosFragment : Fragment() {
 
         val prices = ArrayList<ItemPrice>()
 
-        prices.add(ItemPrice("5€", "Tarif unique"))
+        prices.add(ItemPrice("6€", "Tarif unique"))
+        prices.add(ItemPrice("8€", "Ciné concert"))
         prices.add(ItemPrice("3€", "Carte sortir"))
-        prices.add(ItemPrice("20€", "Tarif unique"))
-        prices.add(ItemPrice("5€", "Carnet fidélité"))
-        prices.add(ItemPrice("5€", "Tarif unique"))
-        prices.add(ItemPrice("5€", "Tarif unique"))
-        prices.add(ItemPrice("5€", "Tarif unique"))
-        prices.add(ItemPrice("5€", "Tarif unique"))
-        prices.add(ItemPrice("5€", "Tarif unique"))
-        prices.add(ItemPrice("5€", "Tarif unique"))
+        prices.add(ItemPrice("25€", "Carnet fidélité"))
+        prices.add(ItemPrice("3€", "Projection"))
+        prices.add(ItemPrice("4€", "Atelier"))
 
         val adapterPrice = PriceViewAdapter(prices)
         recyclerViewPrices.adapter = adapterPrice
@@ -58,12 +55,12 @@ class InfosFragment : Fragment() {
         val adapterPartenaires = PartenaireViewAdapter(partenaires)
         recyclerViewPartenaires.adapter = adapterPartenaires
 
-        val link: TextView = this.activity.findViewById(R.id.tv_link);
+        val link: TextView = this.activity.findViewById(R.id.tv_link)
         link.setOnClickListener({
             val url = "http://www.festival-film-animation.fr/"
-            val i = Intent(Intent.ACTION_VIEW)
-            i.data = Uri.parse(url)
-            startActivity(i)
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse(url)
+            startActivity(intent)
         })
     }
 }

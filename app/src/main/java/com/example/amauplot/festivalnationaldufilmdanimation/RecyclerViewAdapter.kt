@@ -76,10 +76,11 @@ class MovieHomeViewAdapter(val list:ArrayList<ItemMovieShort>):RecyclerView.Adap
 
             val link: TextView = itemView.findViewById(R.id.tv_movie_title)
             link.setOnClickListener({
-                val url = data.url
-                val i = Intent(Intent.ACTION_VIEW)
-                i.data = Uri.parse(url)
-                startActivity(itemView.context, i, null)
+                val intent = Intent()
+                intent.action = Intent.ACTION_VIEW
+                intent.addCategory(Intent.CATEGORY_BROWSABLE)
+                intent.data = Uri.parse(data.url)
+                startActivity(itemView.context, intent, null)
             })
         }
     }
