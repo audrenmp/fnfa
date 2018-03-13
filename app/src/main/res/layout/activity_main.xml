@@ -10,8 +10,8 @@
 
     <FrameLayout
         android:id="@+id/fragment_wrapper"
-        android:layout_width="404dp"
-        android:layout_height="576dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

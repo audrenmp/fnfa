@@ -16,6 +16,7 @@ import android.net.Uri
 import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.widget.LinearLayout
+import android.widget.Toast
 
 // HOMEPAGE
 
@@ -78,10 +79,11 @@ class MovieHomeViewAdapter(val list:ArrayList<ItemMovieShort>):RecyclerView.Adap
 
             val link: TextView = itemView.findViewById(R.id.tv_movie_title)
             link.setOnClickListener({
-                val url = data.url
-                val i = Intent(Intent.ACTION_VIEW)
-                i.data = Uri.parse(url)
-                startActivity(itemView.context, i, null)
+                val intent = Intent()
+                intent.action = Intent.ACTION_VIEW
+                intent.addCategory(Intent.CATEGORY_BROWSABLE)
+                intent.data = Uri.parse(data.url)
+                startActivity(itemView.context, intent, null)
             })
         }
     }
@@ -126,11 +128,9 @@ class MovieCalendarViewAdapter(val list:ArrayList<ItemMovieLong>):RecyclerView.A
             tvDate.text = data.date
             val tvAuteur:TextView = itemView.findViewById(R.id.tv_calendar_auteur)
             tvAuteur.text = data.auteur
-
         }
     }
 }
-
 
 // PAGE INFOS
 

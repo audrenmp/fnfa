@@ -34,15 +34,14 @@ data class LoadedData(
             parcel.readString(),
             parcel.readString(),
             parcel.readString(),
-            parcel.readString()) {
-    }
+            parcel.readString())
 
     override fun writeToParcel(dest: Parcel?, flags: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return
     }
 
     override fun describeContents(): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     companion object CREATOR : Parcelable.Creator<LoadedData> {

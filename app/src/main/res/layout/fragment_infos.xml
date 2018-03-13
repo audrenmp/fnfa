@@ -13,6 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:text="@string/infos_title_tarifs"
         android:textAppearance="@style/main_title"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,7 +21,7 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview_tarifs"
-        android:layout_width="369dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -44,10 +45,13 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayoutLeft"
         android:layout_width="185dp"
-        android:layout_height="162dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/rounded_border_item"
+        app:layout_constraintEnd_toStartOf="@+id/constraintLayoutRight"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/infos_title_lieux">
 
@@ -69,7 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:text="@string/link_arvor"
             android:textAppearance="@style/item_title"
             app:layout_constraintStart_toStartOf="parent"
@@ -79,59 +83,59 @@
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
             android:text="Rennes"
             android:textAppearance="@style/under_title"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_cinema_arvor" />
     </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.ConstraintLayout
-    android:id="@+id/constraintLayoutRight"
-    android:layout_width="185dp"
-    android:layout_height="162dp"
-    android:layout_marginEnd="8dp"
-    android:layout_marginStart="8dp"
-    android:layout_marginTop="8dp"
-    android:background="@drawable/rounded_border_item"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toEndOf="@+id/constraintLayoutLeft"
-    app:layout_constraintTop_toBottomOf="@+id/infos_title_lieux">
+        android:id="@+id/constraintLayoutRight"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_border_item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/infos_title_lieux">
 
-    <ImageView
-    android:id="@+id/imageView3"
-    android:layout_width="190dp"
-    android:layout_height="90dp"
-    android:layout_marginEnd="8dp"
-    android:baselineAlignBottom="false"
-    android:scaleType="centerCrop"
-    android:src="@drawable/cinema_tnb"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="190dp"
+            android:layout_height="90dp"
+            android:layout_marginEnd="8dp"
+            android:baselineAlignBottom="false"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cinema_tnb"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-    android:id="@+id/tv_cinema_arvor"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="8dp"
-    android:layout_marginTop="8dp"
-    android:text="Cinema TNB"
-    android:textAppearance="@style/item_title"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        <TextView
+            android:id="@+id/tv_cinema_arvor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:text="Cinema TNB"
+            android:textAppearance="@style/item_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
-    <TextView
-    android:id="@+id/textView2"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="8dp"
-    android:layout_marginTop="4dp"
-    android:text="Rennes 7 lieux"
-    android:textAppearance="@style/under_title"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/tv_cinema_arvor" />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginStart="8dp"
+            android:text="Rennes 7 lieux"
+            android:textAppearance="@style/under_title"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_cinema_arvor" />
 
     </android.support.constraint.ConstraintLayout>
 
@@ -140,7 +144,7 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/infos_title_partenaires"
         android:textAppearance="@style/main_title"
         app:layout_constraintStart_toStartOf="parent"
@@ -148,7 +152,7 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview_partenaires"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
@@ -166,15 +170,26 @@
         android:id="@+id/tv_link"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="48dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/raleway_semibold"
-        android:text="+ Aller sur le site"
+        android:text="Aller sur le site"
         android:textColor="@color/colorMainGreen"
         android:textSize="18sp"
         android:typeface="normal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.053"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerview_partenaires" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="26dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="12dp"
+        android:src="@drawable/more"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recyclerview_partenaires" />
 
