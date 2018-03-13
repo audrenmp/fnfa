@@ -7,9 +7,11 @@ import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
 import android.widget.FrameLayout
+import android.widget.ImageButton
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
-import org.json.JSONArray
 import org.json.JSONObject
+import java.io.File
 import java.util.ArrayList
 
 
@@ -17,10 +19,10 @@ import java.util.ArrayList
 class MainActivity : FragmentActivity() {
 
     val data_file = "data.json"
-    val favs_file = "favorites.txt"
+    val favs_file = "afca_favorites"
     var events = ArrayList<LoadedData>()
     val favorites = ArrayList<LoadedData>()
-    val favIds = ArrayList<String>()
+    val favIds = ArrayList<Int>()
     val categories = arrayOf(
         "Séance scolaire ouverte au public",
         "Séance spéciale",
@@ -71,7 +73,7 @@ class MainActivity : FragmentActivity() {
         setContentView(R.layout.activity_main)
 
         loadJsonData(data_file)
-        loadFavorites(favs_file)
+        loadFavorites()
 
         if (findViewById<FrameLayout>(R.id.fragment_wrapper) != null) {
             if (savedInstanceState != null) {
@@ -129,34 +131,72 @@ class MainActivity : FragmentActivity() {
         }
     }
 
-    fun loadFavorites(favs_file: String) {
-        val favsString = application.assets.open(favs_file).bufferedReader().use{
-            it.readText()
-        }
-        createFavoriteArray(favsString)
+    // Get image from assets
+    private fun loadImage(image: String): Bitmap {
+        val image_file = application.assets.open(image)
+        val bitmap = BitmapFactory.decodeStream(image_file)
+        return bitmap
     }
 
-    fun createFavoriteArray(favsString: String) {
-        val favsArray = favsString.removeSurrounding("[", "]").split(",").map { it.toInt() }
+    fun switchFavoriteBtn(id: Int, btn: ImageButton){
+        if(favIds.contains(id)){
+            btn.setImageResource(R.drawable.ic_coeur_on)
+        } else {
+            btn.setImageResource(R.drawable.ic_coeur_off)
+        }
+    }
 
-        for (i in 0 until favsArray.size) {
-            val id = favsArray.get(i)
-            favIds.add(id.toString())
+    // Update favorite arrays and init new favorites fragment
+    fun setFavorites(id: Int) {
+        if(!favIds.contains(id)){
+            favIds.add(id)
+            favorites.add(findEventById(id))
+            Toast.makeText(this, favIds.toString(), Toast.LENGTH_SHORT).show()
+        } else {
+            favIds.remove(id)
+            favorites.remove(findEventById(id))
+            Toast.makeText(this, favIds.toString(), Toast.LENGTH_SHORT).show()
+        }
 
-            for (j in 0 until events.size) {
-                val event = events.get(j)
-                val eventId = event.id.toString()
-                if(eventId == id.toString()) {
-                    favorites.add(event)
-                }
+        updateStoredFavorites()
+
+        val favoritesFragment = FavoritesFragment.newInstance(favorites, categories, locations)
+        supportFragmentManager.beginTransaction().add(R.id.fragment_wrapper, favoritesFragment)
+    }
+
+    fun removeFavoritesFromFavoritesPage(id: Int) {
+        if(favIds.contains(id)){
+            favIds.remove(id)
+            favorites.remove(findEventById(id))
+            Toast.makeText(this, favIds.toString(), Toast.LENGTH_SHORT).show()
+        }
+        updateStoredFavorites()
+    }
+
+    // Create/Open file and write new content
+    private fun updateStoredFavorites(){
+        val string: String = favIds.toString()
+        FileHelper.writeFile(favs_file, string, this)
+    }
+
+    // Open file and get the content into array
+    private fun loadFavorites(){
+        val favsString = FileHelper.readFile(favs_file, this)
+        if(favsString != "") {
+            val favsArray = favsString.removeSurrounding("[", "]").split(", ").map { it.toInt() }
+
+            for (i in 0 until favsArray.size) {
+                val id = favsArray[i]
+                favIds.add(id)
+                favorites.add(findEventById(id))
             }
         }
     }
 
-    // Get image from assets
-    fun loadImage(image: String): Bitmap {
-        val image_file = application.assets.open(image)
-        val bitmap = BitmapFactory.decodeStream(image_file)
-        return bitmap
+    private fun findEventById(id: Int): LoadedData{
+        val event = events.first{
+            it.id == id
+        }
+        return event
     }
 }

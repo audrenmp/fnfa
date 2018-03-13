@@ -34,8 +34,7 @@ data class LoadedData(
             parcel.readString(),
             parcel.readString(),
             parcel.readString(),
-            parcel.readString()) {
-    }
+            parcel.readString()) {}
 
     override fun writeToParcel(dest: Parcel?, flags: Int) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.

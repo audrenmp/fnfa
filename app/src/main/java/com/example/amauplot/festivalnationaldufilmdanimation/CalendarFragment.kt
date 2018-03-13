@@ -1,6 +1,5 @@
 package com.example.amauplot.festivalnationaldufilmdanimation
 
-import android.graphics.BitmapFactory
 import android.support.v4.app.Fragment
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -48,10 +47,10 @@ class CalendarFragment : Fragment() {
             } else {
                 age = event.age + " ans"
             }
-            movies.add(ItemMovieLong(event.image, event.title, event.weekDay + " " + event.startTime, locations.get(event.location_id), age, event.startTime, categories.get(event.cat_id), event.day + " " + event.month, event.author))
+            movies.add(ItemMovieLong(event.id, event.image, event.title, event.weekDay + " " + event.startTime, locations.get(event.location_id), age, event.startTime, categories.get(event.cat_id), event.day + " " + event.month, event.author))
         }
 
-        val adapterMovieLong = MovieCalendarViewAdapter(movies)
+        val adapterMovieLong = MovieCalendarViewAdapter(movies, activity)
         recyclerViewMovieLong.adapter = adapterMovieLong
     }
 }

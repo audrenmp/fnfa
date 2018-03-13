@@ -9,13 +9,11 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import android.content.Intent
 import android.net.Uri
 import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.widget.LinearLayout
+import android.widget.*
 
 // HOMEPAGE
 
@@ -89,7 +87,7 @@ class MovieHomeViewAdapter(val list:ArrayList<ItemMovieShort>):RecyclerView.Adap
 
 // PAGE CALENDRIER
 
-class MovieCalendarViewAdapter(val list:ArrayList<ItemMovieLong>):RecyclerView.Adapter<MovieCalendarViewAdapter.ViewHolder>() {
+class MovieCalendarViewAdapter(val list:ArrayList<ItemMovieLong>, val context: Context):RecyclerView.Adapter<MovieCalendarViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieCalendarViewAdapter.ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.list_of_movies_full_vertical, parent, false)
@@ -127,10 +125,69 @@ class MovieCalendarViewAdapter(val list:ArrayList<ItemMovieLong>):RecyclerView.A
             val tvAuteur:TextView = itemView.findViewById(R.id.tv_calendar_auteur)
             tvAuteur.text = data.auteur
 
+            val btnFav: ImageButton = itemView.findViewById(R.id.favoris)
+            btnFav.setOnClickListener({
+                (itemView.context as MainActivity).setFavorites(data.id)
+                (itemView.context as MainActivity).switchFavoriteBtn(data.id, itemView.findViewById(R.id.favoris))
+            })
+            (itemView.context as MainActivity).switchFavoriteBtn(data.id, itemView.findViewById(R.id.favoris))
+
         }
     }
 }
 
+// PAGE FAVORIS
+
+class FavoriteCalendarViewAdapter(val list:ArrayList<ItemMovieLong>, val context: Context):RecyclerView.Adapter<FavoriteCalendarViewAdapter.ViewHolder>() {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteCalendarViewAdapter.ViewHolder {
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.list_of_movies_full_vertical, parent, false)
+        return ViewHolder(v)
+    }
+
+    //this method is binding the data on the list
+    override fun onBindViewHolder(holder: FavoriteCalendarViewAdapter.ViewHolder, position: Int) {
+        holder.bindItems(list[position], position)
+    }
+
+    //this method is giving the size of the list
+    override fun getItemCount(): Int {
+        return list.size
+    }
+
+    inner class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
+        fun bindItems(data : ItemMovieLong, position: Int){
+            val ivMovie: ImageView = itemView.findViewById(R.id.iv_movie)
+            ivMovie.setImageBitmap(data.img)
+            val tvTitle:TextView = itemView.findViewById(R.id.tv_calendar_titre)
+            tvTitle.text = data.title
+            val tvDuree:TextView = itemView.findViewById(R.id.tv_calendar_duree)
+            tvDuree.text = data.duree
+            val tvLieu:TextView = itemView.findViewById(R.id.tv_calendar_lieu)
+            tvLieu.text = data.lieu
+            val tvPublic:TextView = itemView.findViewById(R.id.tv_calendar_public)
+            tvPublic.text = data.public
+            val tvHeure:TextView = itemView.findViewById(R.id.tv_calendar_heure)
+            tvHeure.text = data.heure
+            val tvType:TextView = itemView.findViewById(R.id.tv_calendar_type)
+            tvType.text = data.type
+            val tvDate:TextView = itemView.findViewById(R.id.tv_calendar_date)
+            tvDate.text = data.date
+            val tvAuteur:TextView = itemView.findViewById(R.id.tv_calendar_auteur)
+            tvAuteur.text = data.auteur
+
+            val btnFav: ImageButton = itemView.findViewById(R.id.favoris)
+            btnFav.setOnClickListener({
+                list.removeAt(position)
+                notifyItemRemoved(position)
+                notifyItemRangeChanged(position, list.size)
+
+                (itemView.context as MainActivity).removeFavoritesFromFavoritesPage(data.id)
+            })
+            (itemView.context as MainActivity).switchFavoriteBtn(data.id, itemView.findViewById(R.id.favoris))
+        }
+    }
+}
 
 // PAGE INFOS
 

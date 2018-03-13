@@ -7,7 +7,6 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
 import android.widget.LinearLayout
 
 class FavoritesFragment : Fragment() {
@@ -23,8 +22,7 @@ class FavoritesFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater?,
-                              container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         // Inflate the layout for this fragment
         return inflater?.inflate(R.layout.fragment_calendar,
@@ -48,15 +46,10 @@ class FavoritesFragment : Fragment() {
             } else {
                 age = event.age + " ans"
             }
-            movies.add(ItemMovieLong(event.image, event.title, event.weekDay + " " + event.startTime, locations.get(event.location_id), age, event.startTime, categories.get(event.cat_id), event.day + " " + event.month, event.author))
+            movies.add(ItemMovieLong(event.id, event.image, event.title, event.weekDay + " " + event.startTime, locations.get(event.location_id), age, event.startTime, categories.get(event.cat_id), event.day + " " + event.month, event.author))
         }
 
-        val adapterMovieLong = MovieCalendarViewAdapter(movies)
+        val adapterMovieLong = FavoriteCalendarViewAdapter(movies, context)
         recyclerViewMovieLong.adapter = adapterMovieLong
-
-        val btnFav: ImageButton = this.activity.findViewById(R.id.favoris);
-        btnFav.setOnClickListener({
-            // ici
-        })
     }
 }
