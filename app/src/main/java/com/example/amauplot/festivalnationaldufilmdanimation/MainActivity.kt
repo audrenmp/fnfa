@@ -22,10 +22,10 @@ class MainActivity : FragmentActivity() {
     val favorites = ArrayList<LoadedData>()
     val favIds = ArrayList<Int>()
     val categories = arrayOf(
-        "Compétitions et panoramas",
+        "Compéts et panoramas",
         "Séances spéciales",
         "Longs métrages",
-        "Volets professionnels",
+        "Professionnels",
         "Autour des films",
         "Salon des nouvelles écritures",
         "Cube animé",

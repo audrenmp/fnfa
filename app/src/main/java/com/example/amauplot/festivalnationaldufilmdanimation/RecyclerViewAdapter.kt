@@ -130,8 +130,17 @@ class MovieCalendarViewAdapter(val list:ArrayList<ItemMovieLong>, val context: C
             val tvType:TextView = itemView.findViewById(R.id.tv_calendar_type)
             tvType.text = data.type
 
-
-            tvType.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.colorMainGreen))
+            when {
+                data.type == "Compéts et panoramas" -> tvType.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.colorBackgroundLightGrey))
+                data.type == "Séances spéciales" -> tvType.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.colorMainGreen))
+                data.type == "Longs métrages" -> tvType.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.colorGreenYellow))
+                data.type == "Professionnels" -> tvType.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.colorOrange))
+                data.type == "Autour des films" -> tvType.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.colorBlue))
+                data.type == "Salon des nouvelles écritures" -> tvType.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.colorGreenYellow))
+                data.type == "Cube animé" -> tvType.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.colorOrange))
+                data.type == "Focus" -> tvType.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.colorBlue))
+                else -> tvType.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.colorWhite))
+            }
 
             val tvDate:TextView = itemView.findViewById(R.id.tv_calendar_date)
             tvDate.text = data.date
@@ -200,6 +209,18 @@ class FavoriteCalendarViewAdapter(val list:ArrayList<ItemMovieLong>, val context
             tvType.text = data.type
             val tvDate:TextView = itemView.findViewById(R.id.tv_calendar_date)
             tvDate.text = data.date
+
+            when {
+                data.type == "Compéts et panoramas" -> tvType.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.colorBackgroundLightGrey))
+                data.type == "Séances spéciales" -> tvType.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.colorMainGreen))
+                data.type == "Longs métrages" -> tvType.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.colorGreenYellow))
+                data.type == "Professionnels" -> tvType.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.colorOrange))
+                data.type == "Autour des films" -> tvType.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.colorBlue))
+                data.type == "Salon des nouvelles écritures" -> tvType.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.colorGreenYellow))
+                data.type == "Cube animé" -> tvType.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.colorOrange))
+                data.type == "Focus" -> tvType.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.colorBlue))
+                else -> tvType.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.colorWhite))
+            }
 
             val link: TextView = itemView.findViewById(R.id.tv_calendar_titre)
             link.setOnClickListener({

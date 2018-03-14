@@ -20,7 +20,7 @@
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="380dp"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/iv_movie"
@@ -38,6 +38,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="4dp"
+                android:maxWidth="240dp"
+                android:text="le titre"
                 android:textAppearance="@style/item_title"
                 app:layout_constraintStart_toEndOf="@+id/iv_movie"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -46,13 +48,14 @@
                 android:id="@+id/tv_calendar_lieu"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
-                android:layout_marginStart="12dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/raleway_regular"
+                android:text="calendar lieu "
                 android:textColor="@android:color/black"
                 android:textSize="15sp"
                 app:layout_constraintStart_toEndOf="@+id/tv_calendar_heure"
-                app:layout_constraintTop_toBottomOf="@+id/tv_calendar_titre" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_calendar_type" />
 
             <TextView
                 android:id="@+id/tv_calendar_public"
@@ -61,10 +64,11 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/raleway_regular"
+                android:text="tout public "
                 android:textColor="@android:color/black"
                 android:textSize="15sp"
-                app:layout_constraintStart_toEndOf="@+id/tv_calendar_type"
-                app:layout_constraintTop_toBottomOf="@+id/tv_calendar_heure" />
+                app:layout_constraintStart_toEndOf="@+id/iv_movie"
+                app:layout_constraintTop_toBottomOf="@+id/tv_calendar_date" />
 
             <TextView
                 android:id="@+id/tv_calendar_heure"
@@ -73,22 +77,29 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/raleway_regular"
+                android:text="heure "
                 android:textColor="@android:color/black"
                 android:textSize="15sp"
                 app:layout_constraintStart_toEndOf="@+id/tv_calendar_date"
-                app:layout_constraintTop_toBottomOf="@+id/tv_calendar_titre" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_calendar_type" />
 
             <TextView
                 android:id="@+id/tv_calendar_type"
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/raleway_regular"
+                android:maxWidth="145dp"
+                android:padding="2dp"
+                android:text="salon des nouvelles écrituresalon des nouvelles écriture"
                 android:textColor="@android:color/black"
                 android:textSize="15sp"
+                app:layout_constraintEnd_toStartOf="@+id/favoris"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/iv_movie"
-                app:layout_constraintTop_toBottomOf="@+id/tv_calendar_date" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_calendar_titre" />
 
             <TextView
                 android:id="@+id/tv_calendar_date"
@@ -97,24 +108,23 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/raleway_regular"
+                android:text="14 avril"
                 android:textColor="@android:color/black"
                 android:textSize="15sp"
                 app:layout_constraintStart_toEndOf="@+id/iv_movie"
-                app:layout_constraintTop_toBottomOf="@+id/tv_calendar_titre" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_calendar_type" />
 
             <ImageButton
                 android:id="@+id/favoris"
                 android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
+                android:layout_height="29dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginTop="8dp"
                 android:background="@android:color/white"
                 android:src="@drawable/ic_coeur_off"
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/tv_calendar_titre"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_calendar_titre" />
         </android.support.constraint.ConstraintLayout>
     </LinearLayout>
 </RelativeLayout>

@@ -6,7 +6,11 @@
 
     <!--custom colors app -->
     <color name="colorBackgroundLightGrey">#f1f2f6</color>
-    <color name="colorMainGreen">#46d4af</color>
+    <color name="colorMainGreen">#46d4ad</color>
     <color name="colorIconsGrey">#81818d</color>
+    <color name="colorOrange">#fab82b</color>
+    <color name="colorBlue">#021a9a</color>
+    <color name="colorGreenYellow">#dbe200</color>
+    <color name="colorWhite">#ffffff</color>
 
 </resources>
