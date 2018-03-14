@@ -47,7 +47,7 @@ class CalendarFragment : Fragment() {
             } else {
                 age = event.age + " ans"
             }
-            movies.add(ItemMovieLong(event.id, event.image, event.title, event.weekDay + " " + event.startTime, locations.get(event.location_id), age, event.startTime, categories.get(event.cat_id), event.day + " " + event.month, event.author))
+            movies.add(ItemMovieLong(event.id, event.image, event.title, event.weekDay + " " + event.startTime, locations.get(event.location_id), age, event.startTime, categories.get(event.cat_id), event.day + " " + event.month, event.author, event.url))
         }
 
         val adapterMovieLong = MovieCalendarViewAdapter(movies, activity)

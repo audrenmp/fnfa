@@ -45,12 +45,20 @@ class InfosFragment : Fragment() {
 
         val partenaires = ArrayList<ItemPartenaire>()
 
-        partenaires.add(ItemPartenaire(BitmapFactory.decodeResource(resources, R.drawable.logo), "http://festival-film-animation.fr/"))
-        partenaires.add(ItemPartenaire(BitmapFactory.decodeResource(resources, R.drawable.logo1), "http://festival-film-animation.fr/"))
-        partenaires.add(ItemPartenaire(BitmapFactory.decodeResource(resources, R.drawable.logo2), "http://festival-film-animation.fr/"))
-        partenaires.add(ItemPartenaire(BitmapFactory.decodeResource(resources, R.drawable.logo3), "http://festival-film-animation.fr/"))
-        partenaires.add(ItemPartenaire(BitmapFactory.decodeResource(resources, R.drawable.logo4), "http://festival-film-animation.fr/"))
-        partenaires.add(ItemPartenaire(BitmapFactory.decodeResource(resources, R.drawable.logo5), "http://festival-film-animation.fr/"))
+        partenaires.add(ItemPartenaire(null, null, "ORGANISÉ PAR"))
+        partenaires.add(ItemPartenaire(BitmapFactory.decodeResource(resources, R.drawable.logo), "http://festival-film-animation.fr/", null))
+        partenaires.add(ItemPartenaire(null, null, "EN PARTENA-\nRIAT AVEC"))
+        partenaires.add(ItemPartenaire(BitmapFactory.decodeResource(resources, R.drawable.logo1), "http://festival-film-animation.fr/", null))
+        partenaires.add(ItemPartenaire(BitmapFactory.decodeResource(resources, R.drawable.logo2), "http://festival-film-animation.fr/", null))
+        partenaires.add(ItemPartenaire(BitmapFactory.decodeResource(resources, R.drawable.logo3), "http://festival-film-animation.fr/", null))
+        partenaires.add(ItemPartenaire(null, null, "AVEC LE SOUTIEN DE"))
+        partenaires.add(ItemPartenaire(BitmapFactory.decodeResource(resources, R.drawable.logo4), "http://festival-film-animation.fr/", null))
+        partenaires.add(ItemPartenaire(BitmapFactory.decodeResource(resources, R.drawable.logo5), "http://festival-film-animation.fr/", null))
+        partenaires.add(ItemPartenaire(BitmapFactory.decodeResource(resources, R.drawable.logo6), "http://festival-film-animation.fr/", null))
+        partenaires.add(ItemPartenaire(BitmapFactory.decodeResource(resources, R.drawable.logo7), "http://festival-film-animation.fr/", null))
+        partenaires.add(ItemPartenaire(BitmapFactory.decodeResource(resources, R.drawable.logo8), "http://festival-film-animation.fr/", null))
+        partenaires.add(ItemPartenaire(BitmapFactory.decodeResource(resources, R.drawable.logo9), "http://festival-film-animation.fr/", null))
+        partenaires.add(ItemPartenaire(BitmapFactory.decodeResource(resources, R.drawable.logo10), "http://festival-film-animation.fr/", null))
 
         val adapterPartenaires = PartenaireViewAdapter(partenaires)
         recyclerViewPartenaires.adapter = adapterPartenaires

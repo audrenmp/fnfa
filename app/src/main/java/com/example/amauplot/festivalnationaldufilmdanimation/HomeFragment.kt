@@ -45,7 +45,7 @@ class HomeFragment : Fragment() {
             for (i in 0 until events.size) {
                 val event = events.get(i)
                 if (event.cat_id == j) {
-                    movies.add(ItemMovieShort(event.image, event.title + " / " + event.cat_id + " / " + j, event.weekDay + " " + event.startTime, event.url))
+                    movies.add(ItemMovieShort(event.image, event.title, event.weekDay + " " + event.startTime, event.url))
                 }
             }
             container_movies.add(movies)
