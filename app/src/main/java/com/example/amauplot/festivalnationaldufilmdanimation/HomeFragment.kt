@@ -36,13 +36,20 @@ class HomeFragment : Fragment() {
         val categories : Array<String> = args.getStringArray("categories")
 
         val container_movies = ArrayList<ArrayList<ItemMovieShort>>()
+        val sortedEvents = events.sortedWith(compareBy({ it.day }, { it.startTime }, { it.mins }))
 
         for (j in 1 until categories.size + 1) {
             val movies = ArrayList<ItemMovieShort>()
-            for (i in 0 until events.size) {
-                val event = events.get(i)
+            for (i in 0 until sortedEvents.size) {
+                val event = sortedEvents.get(i)
                 if (event.cat_id == j) {
-                    movies.add(ItemMovieShort(event.image, event.title, event.weekDay + " " + event.startTime + 'h' + event.mins, event.url))
+                    var minutes: String
+                    if(event.mins == 0) {
+                        minutes = "00"
+                    } else {
+                        minutes = event.mins.toString()
+                    }
+                    movies.add(ItemMovieShort(event.image, event.title, event.weekDay + " " + event.startTime + 'h' + minutes, event.url))
                 }
             }
             container_movies.add(movies)
