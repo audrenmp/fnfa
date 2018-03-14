@@ -16,23 +16,28 @@ import java.util.ArrayList
 
 class MainActivity : FragmentActivity() {
 
-    val data_file = "data.json"
+    val data_file = "afca.json"
     val favs_file = "afca_favorites"
     var events = ArrayList<LoadedData>()
     val favorites = ArrayList<LoadedData>()
     val favIds = ArrayList<Int>()
     val categories = arrayOf(
-        "Séance scolaire ouverte au public",
+        "Compétition et panorama",
         "Séance spéciale",
+        "Long métrage",
         "Volet professionnel",
-        "Compétition et sélections",
-        "Long métrage et rencontres",
-        "Atelier secret Fab ",
-        "Salon des nouvelles écritures"
+        "Autour des films",
+        "Salon des nouvelles écritures",
+        "Cube animé",
+        "Focus"
     )
     val locations = arrayOf(
-        "Cinéma du TNB",
-        "L'Arbor"
+        "TNB",
+        "Arvor",
+        "ESRA",
+        "Grand Logis",
+        "Esplanade Charles de Gaulles",
+        "France 3 Bretagne"
     )
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
