@@ -16,18 +16,18 @@ import java.util.ArrayList
 
 class MainActivity : FragmentActivity() {
 
-    val data_file = "data.json"
+    val data_file = "afca.json"
     val favs_file = "afca_favorites"
     var events = ArrayList<LoadedData>()
     val favorites = ArrayList<LoadedData>()
     val favIds = ArrayList<Int>()
     val categories = arrayOf(
-        "Séance scolaire ouverte au public",
-        "Séance spéciale",
-        "Volet professionnel",
-        "Compétition et sélections",
-        "Long métrage et rencontres",
-        "Atelier secret Fab ",
+        "Séances scolaires ouvertes au public",
+        "Séances spéciales",
+        "Volets professionnels",
+        "Compétitions et sélections",
+        "Long métrages et rencontres",
+        "Ateliers Secret Fab ",
         "Salon des nouvelles écritures"
     )
     val locations = arrayOf(
