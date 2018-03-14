@@ -39,8 +39,10 @@ class CalendarFragment : Fragment() {
         val categories : Array<String> = args.getStringArray("categories")
         val movies = ArrayList<ItemMovieLong>()
 
-        for (i in 0 until events.size) {
-            val event = events.get(i)
+        val sortedEvents = events.sortedWith(compareBy({ it.day }, { it.startTime }, { it.mins }))
+
+        for (i in 0 until sortedEvents.size) {
+            val event = sortedEvents.get(i)
             var age : String
             if(event.age == "") {
                 age = "tout public"
