@@ -119,7 +119,7 @@ class MainActivity : FragmentActivity() {
             val title = item.getString("title")
             val catId = item.getInt("catId")
             val locationId = item.getInt("locationId")
-            val image = loadImage(item.getString("image"))
+            val image = loadImage(id.toString() + ".jpg")
             val weekDay = item.getString("weekDay")
             val day = item.getInt("day")
             val month = item.getString("month")
