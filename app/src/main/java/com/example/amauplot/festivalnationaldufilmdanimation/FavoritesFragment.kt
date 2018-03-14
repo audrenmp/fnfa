@@ -46,7 +46,7 @@ class FavoritesFragment : Fragment() {
             } else {
                 age = event.age + " ans"
             }
-            movies.add(ItemMovieLong(event.id, event.image, event.title, locations.get(event.location_id), age, event.startTime.toString() + 'h' + event.mins, categories.get(event.cat_id), event.day.toString() + " " + event.month, event.url))
+            movies.add(ItemMovieLong(event.id, event.image, event.title, locations.get(event.location_id - 1), age, event.startTime.toString() + 'h' + event.mins, categories.get(event.cat_id - 1), event.day.toString() + " " + event.month, event.url))
         }
 
         val adapterMovieLong = FavoriteCalendarViewAdapter(movies, context)
