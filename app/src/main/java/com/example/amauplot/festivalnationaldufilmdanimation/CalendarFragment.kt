@@ -44,12 +44,18 @@ class CalendarFragment : Fragment() {
         for (i in 0 until sortedEvents.size) {
             val event = sortedEvents.get(i)
             var age : String
+            var minutes: String
             if(event.age == "") {
                 age = "tout public"
             } else {
                 age = event.age + " ans"
             }
-            movies.add(ItemMovieLong(event.id, event.image, event.title, locations.get(event.location_id - 1), age, event.startTime.toString() + 'h' + event.mins, categories.get(event.cat_id - 1), event.day.toString() + " " + event.month, event.url))
+            if(event.mins == 0) {
+                minutes = "00"
+            } else {
+                minutes = event.mins.toString()
+            }
+            movies.add(ItemMovieLong(event.id, event.image, event.title, locations.get(event.location_id - 1), age, event.startTime.toString() + 'h' + minutes, categories.get(event.cat_id - 1), event.day.toString() + " " + event.month, event.url))
         }
 
         val adapterMovieLong = MovieCalendarViewAdapter(movies, activity)
