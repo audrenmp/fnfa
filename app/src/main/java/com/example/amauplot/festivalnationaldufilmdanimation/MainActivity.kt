@@ -114,18 +114,15 @@ class MainActivity : FragmentActivity() {
             val title = item.getString("title")
             val catId = item.getInt("catId")
             val locationId = item.getInt("locationId")
-            val image = item.getString("image")
-            val bitmap = loadImage(image)
-            val author = item.getString("author")
+            val image = loadImage(item.getString("image"))
             val weekDay = item.getString("weekDay")
-            val day = item.getString("day")
+            val day = item.getInt("day")
             val month = item.getString("month")
-            val startTime = item.getString("startTime")
-            val endTime = item.getString("endTime")
-            val duration = item.getString("duration")
+            val startTime = item.getInt("startTime")
+            val mins = item.getInt("mins")
             val url = item.getString("url")
             val age = item.getString("age")
-            events.add(LoadedData(id, title, catId, locationId, bitmap, author, weekDay, day, month, startTime, endTime, duration, url, age))
+            events.add(LoadedData(id, title, catId, locationId, image, weekDay, day, month, startTime, mins, url, age))
         }
     }
 

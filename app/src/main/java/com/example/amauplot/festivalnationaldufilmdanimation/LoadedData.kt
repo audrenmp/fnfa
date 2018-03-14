@@ -10,13 +10,11 @@ data class LoadedData(
         val cat_id : Int,
         val location_id: Int,
         val image: Bitmap,
-        val author: String,
         val weekDay: String,
-        val day: String,
+        val day: Int,
         val month: String,
-        val startTime: String,
-        val endTime: String,
-        val duration: String,
+        val startTime: Int,
+        val mins: Int,
         val url: String,
         val age: String
 ) : Parcelable {
@@ -27,15 +25,12 @@ data class LoadedData(
             parcel.readInt(),
             parcel.readParcelable<Bitmap>(Bitmap::class.java.classLoader),
             parcel.readString(),
+            parcel.readInt(),
             parcel.readString(),
+            parcel.readInt(),
+            parcel.readInt(),
             parcel.readString(),
-            parcel.readString(),
-            parcel.readString(),
-            parcel.readString(),
-            parcel.readString(),
-            parcel.readString(),
-            parcel.readString()) {
-    }
+            parcel.readString())
 
     override fun writeToParcel(dest: Parcel?, flags: Int) {
         return

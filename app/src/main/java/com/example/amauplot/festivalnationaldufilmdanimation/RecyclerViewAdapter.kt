@@ -111,8 +111,6 @@ class MovieCalendarViewAdapter(val list:ArrayList<ItemMovieLong>, val context: C
             ivMovie.setImageBitmap(data.img)
             val tvTitle:TextView = itemView.findViewById(R.id.tv_calendar_titre)
             tvTitle.text = data.title
-            val tvDuree:TextView = itemView.findViewById(R.id.tv_calendar_duree)
-            tvDuree.text = data.duree
             val tvLieu:TextView = itemView.findViewById(R.id.tv_calendar_lieu)
             tvLieu.text = data.lieu
             val tvPublic:TextView = itemView.findViewById(R.id.tv_calendar_public)
@@ -123,8 +121,6 @@ class MovieCalendarViewAdapter(val list:ArrayList<ItemMovieLong>, val context: C
             tvType.text = data.type
             val tvDate:TextView = itemView.findViewById(R.id.tv_calendar_date)
             tvDate.text = data.date
-            val tvAuteur:TextView = itemView.findViewById(R.id.tv_calendar_auteur)
-            tvAuteur.text = data.auteur
 
             val btnFav: ImageButton = itemView.findViewById(R.id.favoris)
             btnFav.setOnClickListener({
@@ -162,8 +158,6 @@ class FavoriteCalendarViewAdapter(val list:ArrayList<ItemMovieLong>, val context
             ivMovie.setImageBitmap(data.img)
             val tvTitle:TextView = itemView.findViewById(R.id.tv_calendar_titre)
             tvTitle.text = data.title
-            val tvDuree:TextView = itemView.findViewById(R.id.tv_calendar_duree)
-            tvDuree.text = data.duree
             val tvLieu:TextView = itemView.findViewById(R.id.tv_calendar_lieu)
             tvLieu.text = data.lieu
             val tvPublic:TextView = itemView.findViewById(R.id.tv_calendar_public)
@@ -174,8 +168,6 @@ class FavoriteCalendarViewAdapter(val list:ArrayList<ItemMovieLong>, val context
             tvType.text = data.type
             val tvDate:TextView = itemView.findViewById(R.id.tv_calendar_date)
             tvDate.text = data.date
-            val tvAuteur:TextView = itemView.findViewById(R.id.tv_calendar_auteur)
-            tvAuteur.text = data.auteur
 
             val btnFav: ImageButton = itemView.findViewById(R.id.favoris)
             btnFav.setOnClickListener({
