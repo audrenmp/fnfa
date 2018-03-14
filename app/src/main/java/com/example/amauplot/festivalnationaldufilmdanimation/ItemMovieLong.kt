@@ -14,5 +14,6 @@ data class ItemMovieLong(
         var public:String,
         var heure:String,
         var type:String,
-        var date:String
+        var date:String,
+        var url: String
 )
