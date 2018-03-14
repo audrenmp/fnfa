@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.content.Intent
 import android.net.Uri
+import android.support.v4.content.ContextCompat
 import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.widget.*
@@ -82,6 +83,15 @@ class MovieHomeViewAdapter(val list:ArrayList<ItemMovieShort>):RecyclerView.Adap
                 intent.data = Uri.parse(data.url)
                 startActivity(itemView.context, intent, null)
             })
+
+            val linkimg: ImageView = itemView.findViewById(R.id.iv_movie)
+            linkimg.setOnClickListener({
+                val intent = Intent()
+                intent.action = Intent.ACTION_VIEW
+                intent.addCategory(Intent.CATEGORY_BROWSABLE)
+                intent.data = Uri.parse(data.url)
+                startActivity(itemView.context, intent, null)
+            })
         }
     }
 }
@@ -119,8 +129,30 @@ class MovieCalendarViewAdapter(val list:ArrayList<ItemMovieLong>, val context: C
             tvHeure.text = data.heure
             val tvType:TextView = itemView.findViewById(R.id.tv_calendar_type)
             tvType.text = data.type
+
+
+            tvType.setBackgroundColor(ContextCompat.getColor(itemView.context, R.color.colorMainGreen))
+
             val tvDate:TextView = itemView.findViewById(R.id.tv_calendar_date)
             tvDate.text = data.date
+
+            val link: TextView = itemView.findViewById(R.id.tv_calendar_titre)
+            link.setOnClickListener({
+                val intent = Intent()
+                intent.action = Intent.ACTION_VIEW
+                intent.addCategory(Intent.CATEGORY_BROWSABLE)
+                intent.data = Uri.parse(data.url)
+                startActivity(itemView.context, intent, null)
+            })
+
+            val linkimg: ImageView = itemView.findViewById(R.id.iv_movie)
+            linkimg.setOnClickListener({
+                val intent = Intent()
+                intent.action = Intent.ACTION_VIEW
+                intent.addCategory(Intent.CATEGORY_BROWSABLE)
+                intent.data = Uri.parse(data.url)
+                startActivity(itemView.context, intent, null)
+            })
 
             val btnFav: ImageButton = itemView.findViewById(R.id.favoris)
             btnFav.setOnClickListener({
@@ -168,6 +200,24 @@ class FavoriteCalendarViewAdapter(val list:ArrayList<ItemMovieLong>, val context
             tvType.text = data.type
             val tvDate:TextView = itemView.findViewById(R.id.tv_calendar_date)
             tvDate.text = data.date
+
+            val link: TextView = itemView.findViewById(R.id.tv_calendar_titre)
+            link.setOnClickListener({
+                val intent = Intent()
+                intent.action = Intent.ACTION_VIEW
+                intent.addCategory(Intent.CATEGORY_BROWSABLE)
+                intent.data = Uri.parse(data.url)
+                startActivity(itemView.context, intent, null)
+            })
+
+            val linkimg: ImageView = itemView.findViewById(R.id.iv_movie)
+            linkimg.setOnClickListener({
+                val intent = Intent()
+                intent.action = Intent.ACTION_VIEW
+                intent.addCategory(Intent.CATEGORY_BROWSABLE)
+                intent.data = Uri.parse(data.url)
+                startActivity(itemView.context, intent, null)
+            })
 
             val btnFav: ImageButton = itemView.findViewById(R.id.favoris)
             btnFav.setOnClickListener({
@@ -233,12 +283,17 @@ class PartenaireViewAdapter(val list:ArrayList<ItemPartenaire>):RecyclerView.Ada
             val imageView: ImageView = itemView.findViewById(R.id.iv_logo_partenaire)
             imageView.setImageBitmap(data.logo)
 
-            itemView.setOnClickListener {
-                val intent = Intent()
-                intent.action = Intent.ACTION_VIEW
-                intent.addCategory(Intent.CATEGORY_BROWSABLE)
-                intent.data = Uri.parse(data.link)
-                startActivity(imageView.context, intent, null)
+            val tvText:TextView = itemView.findViewById(R.id.tv_partenaire)
+            tvText.text = data.text
+
+            if(data.link !== null) {
+                itemView.setOnClickListener {
+                    val intent = Intent()
+                    intent.action = Intent.ACTION_VIEW
+                    intent.addCategory(Intent.CATEGORY_BROWSABLE)
+                    intent.data = Uri.parse(data.link)
+                    startActivity(imageView.context, intent, null)
+                }
             }
         }
     }
