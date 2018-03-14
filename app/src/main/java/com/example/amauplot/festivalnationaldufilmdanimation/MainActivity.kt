@@ -22,17 +22,22 @@ class MainActivity : FragmentActivity() {
     val favorites = ArrayList<LoadedData>()
     val favIds = ArrayList<Int>()
     val categories = arrayOf(
-        "Séances scolaires ouvertes au public",
-        "Séances spéciales",
-        "Volets professionnels",
-        "Compétitions et sélections",
-        "Long métrages et rencontres",
-        "Ateliers Secret Fab ",
-        "Salon des nouvelles écritures"
+        "Compétition et panorama",
+        "Séance spéciale",
+        "Long métrage",
+        "Volet professionnel",
+        "Autour des films",
+        "Salon des nouvelles écritures",
+        "Cube animé",
+        "Focus"
     )
     val locations = arrayOf(
-        "Cinéma du TNB",
-        "L'Arbor"
+        "TNB",
+        "Arvor",
+        "ESRA",
+        "Grand Logis",
+        "Esplanade Charles de Gaulles",
+        "France 3 Bretagne"
     )
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
